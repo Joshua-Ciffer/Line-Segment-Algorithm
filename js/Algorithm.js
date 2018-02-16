@@ -18,17 +18,19 @@ function constructLineSegments(points) {
 		let previousY = points[i - 1].getY();
 		let currentX = points[i].getX();
 		let currentY = points[i].getY();
-		if (dist(currentX, currentY, previousX, previousY) > 20) {
+		if (dist(currentX, currentY, previousX, previousY) > 15) {
 			endX = previousX;
 			endY = previousY;
-			lines[numLines] = [];
-			lines[numLines][0] = startX;
-			lines[numLines][1] = startY;
-			lines[numLines][2] = endX;
-			lines[numLines][3] = endY;
-			numLines++;
-			startX = currentX;
-			startY = currentY;
+			if (!((startX == endX) && (startY == endY))) {
+				lines[numLines] = [];
+				lines[numLines][0] = startX;
+				lines[numLines][1] = startY;
+				lines[numLines][2] = endX;
+				lines[numLines][3] = endY;
+				numLines++;
+				startX = currentX;
+				startY = currentY;
+			}
 		}
 	}
 }
@@ -41,9 +43,8 @@ function drawLines() {
 			let endX = lines[i][2];
 			let endY = lines[i][3];
 			stroke(255, 0, 0);
-			strokeWeight(5);
+			strokeWeight(3);
 			line(startX, startY, endX, endY);
 		}
 	}
-	
 }
