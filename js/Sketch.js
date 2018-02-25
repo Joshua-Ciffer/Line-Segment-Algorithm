@@ -22,8 +22,9 @@ function setup() {
  */
 function draw() {
 	background(0);
-	drawPoints();	// Draws all of the points that have been created.
-	drawLines();	// Draws any line segments that connect any points.
+	drawPoints();					// Draws all of the points that have been created.
+	constructLineSegments();		// Runs the algorithm to evaluate what points are apart of the same line.
+	drawLines();					// Draws any line segments that connect any points.
 }
 
 /**
@@ -33,13 +34,4 @@ function draw() {
  */
 function mousePressed() {
 	createPoint(createVector(mouseX, mouseY));
-}
-
-/**
- * Runs the algorithm to construct any line segments when a key is pressed.
- * 
- * @returns void
- */
-function keyPressed() {
-	constructLineSegments(points);
 }
