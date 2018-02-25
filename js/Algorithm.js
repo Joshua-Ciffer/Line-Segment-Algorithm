@@ -1,11 +1,25 @@
 /**
+ * This file contains functions that determine which points are close enough together to be considered a part of the same line.
  * 
  * @author Joshua Ciffer
- * @version 02/16/2018
+ * @version 02/22/2018
+ */
+
+/**
+ * Array containing all of the line segments that have been constructed.
  */
 var lines = [];
+
+/**
+ * Iterator used when adding line segments to the array.
+ */
 var numLines = 0;
 
+/**
+ * 
+ * @param points - The array of points stored in sketch.js.
+ * @returns void
+ */
 function constructLineSegments(points) {
 	let startX;
 	let startY;
@@ -35,6 +49,11 @@ function constructLineSegments(points) {
 	}
 }
 
+/**
+ * Draws all of the line segments
+ * 
+ * @returns void
+ */
 function drawLines() {
 	for (let i = 0; i < lines.length; i++) {
 		for (let j = 0; j < lines[i].length; j++) {
