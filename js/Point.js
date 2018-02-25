@@ -1,6 +1,6 @@
 /**
- * This file contains a constructor function that creates a point object.  The point object contains a vector with an x and y value
- * that are passed as a parameter from mousePressed() in Sketch.js.
+ * This file contains a constructor function that creates a point object.  The point object contains a vector with an x and y value that are passed as a parameter
+ * from mousePressed() in Sketch.js.
  * 
  * @author Joshua Ciffer
  * @version 02/22/2018
@@ -27,18 +27,18 @@ function createPoint(position) {
 }
 
 /**
- * Constructor function that creates a new point object.  The position of the point is stored in a vector object which contains its x and y position.
+ * Constructor function that creates a new point object. The position of the point is stored in a vector object which contains its x and y position.
  * 
  * @param position - The point's vector.
  * @returns new Point
  */
 function Point(position) {
-	
+
 	/**
 	 * The point's x and y position.
 	 */
 	this.position = position;
-	
+
 	/**
 	 * Draws this point.
 	 */
@@ -55,14 +55,14 @@ function Point(position) {
 	this.getX = function() {
 		return this.position.x;
 	}
-	
+
 	/**
 	 * @returns This point's y position.
 	 */
 	this.getY = function() {
 		return this.position.y;
 	}
-	
+
 }
 
 /**
