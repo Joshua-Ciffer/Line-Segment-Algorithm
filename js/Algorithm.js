@@ -21,8 +21,8 @@ var numLines = 0;
  * @returns void
  */
 function constructLineSegments() {
-	var previousX, previousY, currentX, currentY;
-	var startX, startY, endX, endY;
+	let previousX, previousY, currentX, currentY;
+	let startX, startY, endX, endY;
 	if (points.length > 0) {
 		if (points.length === 1) {
 			startX = points[0].getX();
@@ -36,7 +36,7 @@ function constructLineSegments() {
 			if (dist(currentX, currentY, previousX, previousY) > 25) {
 				endX = previousX;
 				endY = previousY;
-				if (!(startX == endX) && !(startY == endY)) {	// Fixes bug where a line would be drawn from a point to itself.
+				if (!(startX == endX) && !(startY == endY)) {
 					lines[numLines] = [];
 					lines[numLines][0] = startX;
 					lines[numLines][1] = startY;
