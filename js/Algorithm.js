@@ -16,38 +16,36 @@ var lines = [];
 var numLines = 0;
 
 /**
+ * Evaluates what points are close enough together to be considered a part of the same line segment as the previous point.
  * 
- * @param points -
- *            The array of points stored in sketch.js.
  * @returns void
  */
 function constructLineSegments() {
+	let previousX, previousY, currentX, currentY;
 	let startX, startY, endX, endY;
-	if (points[0] != null) {
+	if (!(points[0] == undefined)) {
 		startX = points[0].getX();
 		startY = points[0].getY();
-		for (let i = 1; i < points.length; i++) {
-			let previousX = points[i - 1].getX();
-			let previousY = points[i - 1].getY();
-			let currentX = points[i].getX();
-			let currentY = points[i].getY();
-			if (dist(currentX, currentY, previousX, previousY) > 15) {
-				endX = previousX;
-				endY = previousY;
-				if (!((startX == endX) && (startY == endY))) {
-					lines[numLines] = [];
-					lines[numLines][0] = startX;
-					lines[numLines][1] = startY;
-					lines[numLines][2] = endX;
-					lines[numLines][3] = endY;
-					numLines++;
-					startX = currentX;
-					startY = currentY;
-				}
-			}
+	}
+	for (let i = 1; i < points.length; i++) {
+
+		previousX = points[i - 1].getX();
+		previousY = points[i - 1].getY();
+		currentX = points[i].getX();
+		currentY = points[i].getY();
+		if (dist(currentX, currentY, previousX, previousY) > 25) {
+			endX = previousX;
+			endY = previousY;
+			lines[numLines] = [];
+			lines[numLines][0] = startX;
+			lines[numLines][1] = startY;
+			lines[numLines][2] = endX;
+			lines[numLines][3] = endY;
+			numLines++;
+			startX = currentX;
+			startY = currentY;
 		}
 	}
-
 }
 
 /**
@@ -56,16 +54,15 @@ function constructLineSegments() {
  * @returns void
  */
 function drawLines() {
-	let startX, startY, endX, endY;
 	for (let i = 0; i < lines.length; i++) {
 		for (let j = 0; j < lines[i].length; j++) {
-			startX = lines[i][0];
-			startY = lines[i][1];
-			endX = lines[i][2];
-			endY = lines[i][3];
+			let startX = lines[i][0];
+			let startY = lines[i][1];
+			let endX = lines[i][2];
+			let endY = lines[i][3];
 			stroke(255, 0, 0);
-			strokeWeight(3);
+			strokeWeight(5);
 			line(startX, startY, endX, endY);
 		}
-	}
+}
 }
