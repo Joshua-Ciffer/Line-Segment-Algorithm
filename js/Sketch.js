@@ -22,9 +22,9 @@ function setup() {
  */
 function draw() {
 	background(0);
-	drawPoints();					// Draws all of the points that have been created.
-	constructLineSegments();		// Runs the algorithm to evaluate what points are apart of the same line.
-	drawLines();					// Draws any line segments that connect any points.
+	drawPoints(); 				 // Draws all of the points that have been created.
+	constructLineSegments();	 // Runs the algorithm to evaluate what points are apart of the same line.
+	drawLines();				 // Draws any line segments that connect any points.
 }
 
 /**
